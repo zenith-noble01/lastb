@@ -1,11 +1,9 @@
 const router = require("express").Router();
-const Class = require("../../models/class/Class")
-
-
+const Classes = require("../../models/class/Class")
 
 // CREATING A NEW CLASS
 router.post("/", async (req, res)=>{
-    const newClass = new Class({
+    const newClass = new Classes({
         classname: req.body.classname
     });
     try {
@@ -19,7 +17,9 @@ router.post("/", async (req, res)=>{
 // GET ONE CLASS
 router.get("/:classname", async (req, res) =>{
     try {
-        const oneclass = await Class.findById(req.params.classname);
+        const oneclass = await Classes.find({
+            classname: req.body.classname
+        });
         res.status(200).json(oneclass);
     } catch (err) {
         res.status(500).json(err);
@@ -31,7 +31,7 @@ router.get("/:classname", async (req, res) =>{
 router.get("/", async (req, res) =>{
     try {
         let oneclass;
-        oneclass = await Class.find()
+        oneclass = await Classes.find()
         res.status(200).json(oneclass)
     } catch (error) {
         res.status(500).json(error)

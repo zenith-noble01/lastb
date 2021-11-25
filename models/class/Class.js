@@ -7,13 +7,16 @@ const ClassSchema = new mongoose.Schema(
         require: true
     },
     students: {
-        type: Array
+        type: Array,
+        default: []
     },
     teachers: {
-        type: Array
+        type: Array,
+        default: []
     },
     subjects: {
-        type: Array
+        type: Array,
+        default: []
     }
 },
     { timestamps: true }
