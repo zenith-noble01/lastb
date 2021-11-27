@@ -4,6 +4,7 @@ const ResultSchema = new mongoose.Schema(
   {
     classname: {
       type: String,
+      required: true,
     },
     img: {
       type: String,
@@ -12,7 +13,7 @@ const ResultSchema = new mongoose.Schema(
     },
     classId: {
         type: String,
-        required: true
+        default: "",
     }
   },
   { timestamps: true }
