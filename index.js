@@ -39,9 +39,10 @@ app.use("/images", express.static(path.join(__dirname, "public/images")));
 app.use(express.json());
 app.use(helmet());
 app.use(morgan("common"));
+app.use("/api/adminAuth", require("./routes/admin/auth"));
+app.use("/api/studentAuth", require("./routes/students/auth"))
 app.use("/api/posts", require("./routes/admin/post"));
 app.use("/api/contact", require("./routes/admin/contact"));
-app.use("/api/studentAuth", require("./routes/students/auth"))
 app.use("/api/getStudents", require("./routes/students/student"))
 app.use("/api/teacherAuth", require("./routes/teachers/teacherAuth"))
 app.use("/api/getTeachers", require("./routes/teachers/teacher"))
